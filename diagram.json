@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "Edward Robinson",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -128.17,
+      "left": -7.08,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -158.36, "left": 340.47, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": -200.97, "left": 151.2, "attrs": {} }
+  ],
+  "connections": [
+    [ "mega:GND.1", "oled1:GND", "black", [ "v-152.48", "h-87.25" ] ],
+    [ "mega:GND.1", "pot1:GND", "black", [ "v0" ] ],
+    [ "mega:GND.1", "pot2:GND", "black", [ "v0" ] ],
+    [ "pot1:SIG", "mega:A0", "green", [ "v0" ] ],
+    [ "mega:A0", "mega:A1", "green", [ "v0" ] ],
+    [ "mega:A2", "mega:A1", "green", [ "v0" ] ],
+    [ "pot2:SIG", "mega:A3", "yellow", [ "h56.25", "v310.09" ] ],
+    [ "pot2:VCC", "pot1:VCC", "red", [ "h68.25", "v-61.66", "h187.69" ] ],
+    [ "oled1:VCC", "mega:5V", "red", [ "v-32.43", "h-94.53", "v424.87", "h209.17" ] ],
+    [ "pot2:VCC", "oled1:VCC", "red", [ "h64.25", "v-82.56", "h-222.13" ] ],
+    [ "oled1:SCL", "mega:SCL", "purple", [ "h51.34", "v130.71" ] ],
+    [ "oled1:SDA", "mega:SDA", "green", [ "h47.51", "v130.71" ] ],
+    [ "mega:A1", "pot1:SIG", "green", [ "v-225.97", "h228.14" ] ],
+    [ "mega:A4", "oled1:SCL", "green", [ "v32.7", "h-283.08", "v-361.33", "h44.67" ] ],
+    [ "mega:A5", "oled1:SDA", "green", [ "v40.03", "h-303.91", "v-410.67", "h120.67", "v16" ] ]
+  ],
+  "dependencies": {}
+}
